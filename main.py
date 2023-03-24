@@ -8,10 +8,11 @@ from datetime import timedelta
 class WorkingHours(object):
     # avg_prod , startDefault , stopDefault , totalHrs
     def __int__(self,startDefault,avg_prod,stopDefault,totalHrs):
-        self.avg_prod = avg_prod # in MT - Metric Tonnes
-        self.startDefault = startDefault
-        self.stopDefault =stopDefault
-        self.totalHrs =totalHrs
+        # self.avg_prod = avg_prod # in MT - Metric Tonnes
+        # self.startDefault = startDefault
+        # self.stopDefault =stopDefault
+        # self.totalHrs =totalHrs
+        return
 
     def defaults(self):
         self.totalWorkers = int(input("Total Workers: ")) # Hardcode
@@ -71,12 +72,36 @@ class WorkingHours(object):
         print(self.additional_hrs)
         print(self.additional_hrs1)
 
+class production:
+    def __init__(self):
+        '''
+
+        :param yest_prod: consider this parameter as 70 MT
+        :param tody_prod: consider this parameter as 60 MT
+        :param yest_req: consider this parameter as 80 MT
+        :param tody_req: consider this parameter as 70 MT
+        '''
+
+        self.yest_prod = int(input("Yesterday's Production: "))  # yesterday production filled
+        self.tody_prod = int(input("Today's Production: "))  # today production filled
+        self.yest_req = int(input("Requirement Yesterday: "))     # requirement yesterday
+        self.tody_req = int(input("Requirement Today: "))     # requirement today
+        self.avg30_prod = None
+
+    def lossInProduction(self):
+        self.loss  = (self.yest_req - self.yest_prod) + (self.tody_req - self.tody_prod)
+        print("There is about "+ str(self.loss) + "MT"+" amount of requirement pending !")
+
+
 
 
 energon = WorkingHours()
+energonProd = production()
+
 energon.defaults()
 energon.current()
 energon.correction()
+energonProd.lossInProduction()
 if __name__ == '__main__':
     print('PyCharm')
     # print(energon.startDefault)
