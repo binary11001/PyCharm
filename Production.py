@@ -1,5 +1,4 @@
 
-from main import *
 
 
 class production:
@@ -20,9 +19,17 @@ class production:
 
     def lossInProduction(self):
         self.loss  = (self.yest_req - self.yest_prod) + (self.tody_req - self.tody_prod)
+        self.lossToday =(self.tody_req - self.tody_prod)
+        self.lossYest = (self.yest_req - self.yest_prod)
         print("There is about "+ str(self.loss) + "MT"+" amount of requirement pending !")
+        if (self.yest_prod != self.yest_req) and (self.tody_prod != self.tody_req):
+            print("You Have a Pending Production Loss of "+ str(self.loss)+ " for yesterday & Today !")
+        elif (self.yest_prod == self.yest_req) and (self.tody_prod != self.tody_req):
+            print("You Have Pending Production Loss For today of "+ str(self.lossToday))
 
 
 
-obj = production()
-obj.lossInProduction()
+
+
+production()
+print(production().tody_prod)
