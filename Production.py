@@ -28,7 +28,5 @@ class Production:
             print("You Have Pending Production Loss For yesterday of " + str(self.lossYest)+"MT")
 
 
-
-
 prod = Production()
 prod.lossInProduction()
