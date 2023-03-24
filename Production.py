@@ -1,7 +1,5 @@
 
-
-
-class production:
+class Production:
     def __init__(self):
         '''
 
@@ -17,19 +15,20 @@ class production:
         self.tody_req = int(input("Requirement Today: "))     # requirement today
         self.avg30_prod = None
 
-    def lossInProduction(self):
+    def lossInProduction(self , prod=None):
         self.loss  = (self.yest_req - self.yest_prod) + (self.tody_req - self.tody_prod)
         self.lossToday =(self.tody_req - self.tody_prod)
         self.lossYest = (self.yest_req - self.yest_prod)
         print("There is about "+ str(self.loss) + "MT"+" amount of requirement pending !")
         if (self.yest_prod != self.yest_req) and (self.tody_prod != self.tody_req):
-            print("You Have a Pending Production Loss of "+ str(self.loss)+ " for yesterday & Today !")
+            print("You Have a Pending Production Loss of "+ str(self.loss)+ "MT for yesterday & Today !")
         elif (self.yest_prod == self.yest_req) and (self.tody_prod != self.tody_req):
-            print("You Have Pending Production Loss For today of "+ str(self.lossToday))
+            print("You Have Pending Production Loss For today of "+ str(self.lossToday)+"MT")
+        elif (self.yest_prod != self.yest_req) and (self.tody_prod == self.tody_req):
+            print("You Have Pending Production Loss For yesterday of " + str(self.lossYest)+"MT")
 
 
 
 
-
-production()
-print(production().tody_prod)
+prod = Production()
+prod.lossInProduction()
