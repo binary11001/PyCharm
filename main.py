@@ -8,10 +8,11 @@ from datetime import timedelta
 class WorkingHours(object):
     # avg_prod , startDefault , stopDefault , totalHrs
     def __int__(self,startDefault,avg_prod,stopDefault,totalHrs):
-        self.avg_prod = avg_prod # in MT - Metric Tonnes
-        self.startDefault = startDefault
-        self.stopDefault =stopDefault
-        self.totalHrs =totalHrs
+        # self.avg_prod = avg_prod # in MT - Metric Tonnes
+        # self.startDefault = startDefault
+        # self.stopDefault =stopDefault
+        # self.totalHrs =totalHrs
+        return
 
     def defaults(self):
         self.totalWorkers = int(input("Total Workers: ")) # Hardcode
